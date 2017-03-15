@@ -23,7 +23,7 @@ services:
         max-file: '2'
 
   longhorn-orc:
-    image: rancher/longhorn-orc:1bd340c
+    image: imikushin/longhorn-orc:0464270
     labels:
       io.rancher.sidekicks: longhorn-binary
       io.rancher.scheduler.global: 'true'
@@ -35,10 +35,10 @@ services:
     - longhorn-binary   # /usr/local/bin
     environment:
       RANCHER_DEBUG: ${RANCHER_DEBUG}
-      LONGHORN_IMAGE: rancher/longhorn:03f0f7c
+      LONGHORN_IMAGE: rancher/longhorn:dc31bcb
 
   longhorn-binary:
-    image: rancher/longhorn:03f0f7c
+    image: rancher/longhorn:dc31bcb
     command: [sh]
     stdin_open: true
     tty: true
