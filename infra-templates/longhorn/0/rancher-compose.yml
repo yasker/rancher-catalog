@@ -17,3 +17,12 @@ longhorn-driver:
     name: rancher-longhorn
     scope: environment
     volume_access_mode: singleHostRW
+
+longhorn-orc-lb:
+  lb_config:
+    port_rules:
+    - priority: 1
+      protocol: http
+      service: longhorn-orc
+      source_port: 7000
+      target_port: 7000

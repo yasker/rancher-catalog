@@ -42,3 +42,12 @@ services:
     command: [sh]
     stdin_open: true
     tty: true
+
+  longhorn-orc-lb:
+    image: rancher/lb-service-haproxy:v0.6.0
+    expose:
+    - 7000:7000/tcp
+    labels:
+      io.rancher.scheduler.global: 'true'
+      io.rancher.container.create_agent: 'true'
+      io.rancher.container.agent.role: environmentAdmin
