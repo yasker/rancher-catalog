@@ -23,7 +23,7 @@ services:
         max-file: '2'
 
   longhorn-orc:
-    image: rancher/longhorn-orc:1bd340c
+    image: yasker/longhorn-orc:8f09bdd
     labels:
       io.rancher.sidekicks: longhorn-binary
       io.rancher.scheduler.global: 'true'
@@ -33,12 +33,14 @@ services:
     - /var/run:/var/run
     volumes_from:
     - longhorn-binary   # /usr/local/bin
+    ports:
+    - 7000:7000
     environment:
       RANCHER_DEBUG: ${RANCHER_DEBUG}
-      LONGHORN_IMAGE: rancher/longhorn:03f0f7c
+      LONGHORN_IMAGE: yasker/longhorn:latest
 
   longhorn-binary:
-    image: rancher/longhorn:03f0f7c
+    image: yasker/longhorn:latest
     command: [sh]
     stdin_open: true
     tty: true
